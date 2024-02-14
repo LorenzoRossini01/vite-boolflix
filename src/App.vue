@@ -2,11 +2,14 @@
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import axios from "axios";
+import { store } from "./store/index";
 
 export default {
   data() {
     return {
+      store,
       movieArray: [],
+      serieArray: [],
     };
   },
 
@@ -15,22 +18,39 @@ export default {
     AppMain,
   },
 
-  created() {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?query=Spiderman&api_key=f5f7651010a56a49f338d8ba37dd5a61`
-      )
-      .then((res) => {
-        console.log(res.data.results);
-        this.movieArray = res.data.results;
-      });
+  methods: {
+    searchMovies() {
+      axios
+        .get(
+          `${store.apiMovieUri}?query=${store.querySearch}&api_key=${store.apiKey}`
+        )
+        .then((res) => {
+          console.log(
+            `${store.apiMovieUri}${store.querySearch}${store.apiKey}`
+          );
+          this.movieArray = res.data.results;
+        });
+      axios
+        .get(
+          `${store.apiSeriesUri}?query=${store.querySearch}&api_key=${store.apiKey}`
+        )
+        .then((res) => {
+          console.log(
+            `${store.apiSeriesUri}${store.querySearch}${store.apiKey}`
+          );
+          this.serieArray = res.data.results;
+        });
+    },
   },
 };
 </script>
 
 <template>
-  <AppHeader></AppHeader>
-  <AppMain :movieCardsArray="movieArray"></AppMain>
+  <AppHeader @search-movie="searchMovies"></AppHeader>
+  <AppMain
+    :movieCardsArray="movieArray"
+    :seriesCardsArray="serieArray"
+  ></AppMain>
 </template>
 
 <style lang="scss">

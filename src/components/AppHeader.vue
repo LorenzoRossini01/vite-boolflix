@@ -1,16 +1,20 @@
 <script>
+import { store } from "../store/index";
+
 export default {
   data() {
     return {
-      querySearch: "",
+      store,
     };
   },
+
+  emits: ["search-movie"],
 };
 </script>
 
 <template>
-  <input type="text" v-model="querySearch" />
-  <div class="btn btn-primary">Search</div>
+  <input type="text" v-model="store.querySearch" />
+  <div class="btn btn-primary" @click="$emit('search-movie')">Search</div>
 </template>
 
 <style lang="scss" scoped></style>
