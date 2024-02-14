@@ -1,7 +1,9 @@
 <script>
+import { store } from "../store/index";
+
 export default {
   data() {
-    return {};
+    return { store };
   },
 
   props: {
@@ -19,7 +21,13 @@ export default {
       <ul>
         <li>{{ movieCard.original_title }}</li>
         <li>{{ movieCard.overview }}</li>
-        <li>{{ movieCard.original_language }}</li>
+        <li>
+          <img
+            :src="`https://flagsapi.com/${store.convertLang(
+              movieCard.original_language
+            )}/flat/64.png`"
+          />
+        </li>
         <li>{{ movieCard.release_date }}</li>
         <li>{{ movieCard.vote_average }}</li>
         <li v-if="movieCard.adult">+18</li>

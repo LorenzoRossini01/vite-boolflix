@@ -1,7 +1,9 @@
 <script>
+import { store } from "../store/index";
+
 export default {
   data() {
-    return {};
+    return { store };
   },
 
   props: {
@@ -19,7 +21,13 @@ export default {
       <ul>
         <li>{{ serieCard.original_name }}</li>
         <li>{{ serieCard.overview }}</li>
-        <li>{{ serieCard.original_language }}</li>
+        <li>
+          <img
+            :src="`https://flagsapi.com/${store.convertLang(
+              serieCard.original_language
+            )}/flat/64.png`"
+          />
+        </li>
         <li>{{ serieCard.release_date }}</li>
         <li>{{ serieCard.vote_average }}</li>
         <li v-if="serieCard.adult">+18</li>
