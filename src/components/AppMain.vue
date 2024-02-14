@@ -23,13 +23,13 @@ export default {
   <div class="container-fluid">
     <h1>Movies</h1>
     <div class="row g-2">
-      <div class="col-3" v-for="movie in movieCardsArray">
+      <div class="col" v-for="movie in movieCardsArray">
         <AppMovieCards :movieCard="movie"></AppMovieCards>
       </div>
     </div>
     <h1>TV Series</h1>
     <div class="row g-2">
-      <div class="col-3" v-for="serie in seriesCardsArray">
+      <div class="col" v-for="serie in seriesCardsArray">
         <AppSeriesCards :serieCard="serie"></AppSeriesCards>
       </div>
     </div>
@@ -44,6 +44,8 @@ export default {
 .row {
   overflow-x: auto;
   flex-wrap: nowrap;
-  gap: 50px;
+  .col {
+    flex-grow: 0;
+  }
 }
 </style>
