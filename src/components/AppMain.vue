@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <h1>Movies</h1>
     <div class="row g-2">
       <div class="col-3" v-for="movie in movieCardsArray">
@@ -37,8 +37,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.container {
+.container-fluid {
   overflow: hidden;
+  margin-left: 200px;
 }
 .row {
   overflow-x: auto;

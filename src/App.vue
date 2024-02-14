@@ -22,21 +22,21 @@ export default {
     searchMovies() {
       axios
         .get(
-          `${store.apiMovieUri}?query=${store.querySearch}&api_key=${store.apiKey}`
+          `${store.apiMovieUri}?query=${store.searchBar.querySearch}&api_key=${store.apiKey}`
         )
         .then((res) => {
           console.log(
-            `${store.apiMovieUri}${store.querySearch}${store.apiKey}`
+            `${store.apiMovieUri}${store.searchBar.querySearch}${store.apiKey}`
           );
           this.movieArray = res.data.results;
         });
       axios
         .get(
-          `${store.apiSeriesUri}?query=${store.querySearch}&api_key=${store.apiKey}`
+          `${store.apiSeriesUri}?query=${store.searchBar.querySearch}&api_key=${store.apiKey}`
         )
         .then((res) => {
           console.log(
-            `${store.apiSeriesUri}${store.querySearch}${store.apiKey}`
+            `${store.apiSeriesUri}${store.searchBar.querySearch}${store.apiKey}`
           );
           this.serieArray = res.data.results;
         });
