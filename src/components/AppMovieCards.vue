@@ -9,6 +9,12 @@ export default {
   props: {
     movieCard: Object,
   },
+
+  computed: {
+    voteConverted() {
+      return Math.round(this.movieCard.vote_average / 2);
+    },
+  },
 };
 </script>
 
@@ -31,7 +37,28 @@ export default {
             />
           </li>
           <li>{{ movieCard.release_date }}</li>
-          <li>{{ movieCard.vote_average }}</li>
+          <li>
+            <i
+              class="fa-solid fa-star"
+              :class="voteConverted >= 1 ? 'active' : ''"
+            ></i>
+            <i
+              class="fa-solid fa-star"
+              :class="voteConverted >= 2 ? 'active' : ''"
+            ></i>
+            <i
+              class="fa-solid fa-star"
+              :class="voteConverted >= 3 ? 'active' : ''"
+            ></i>
+            <i
+              class="fa-solid fa-star"
+              :class="voteConverted >= 4 ? 'active' : ''"
+            ></i>
+            <i
+              class="fa-solid fa-star"
+              :class="voteConverted == 5 ? 'active' : ''"
+            ></i>
+          </li>
           <li v-if="movieCard.adult">+18</li>
         </ul>
       </div>

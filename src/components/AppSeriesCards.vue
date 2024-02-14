@@ -10,10 +10,9 @@ export default {
     serieCard: Object,
   },
 
-  methods: {
-    giveVoteStars(vote) {
-      const voteConverted = Math.round(vote / 2);
-      return voteConverted;
+  computed: {
+    voteConverted() {
+      return Math.round(this.serieCard.vote_average / 2);
     },
   },
 };
@@ -37,7 +36,28 @@ export default {
           />
         </li>
         <li>{{ serieCard.first_air_date }}</li>
-        <li>{{ giveVoteStars(serieCard.vote_average) }}</li>
+        <li>
+          <i
+            class="fa-solid fa-star"
+            :class="voteConverted >= 1 ? 'active' : ''"
+          ></i>
+          <i
+            class="fa-solid fa-star"
+            :class="voteConverted >= 2 ? 'active' : ''"
+          ></i>
+          <i
+            class="fa-solid fa-star"
+            :class="voteConverted >= 3 ? 'active' : ''"
+          ></i>
+          <i
+            class="fa-solid fa-star"
+            :class="voteConverted >= 4 ? 'active' : ''"
+          ></i>
+          <i
+            class="fa-solid fa-star"
+            :class="voteConverted == 5 ? 'active' : ''"
+          ></i>
+        </li>
         <li v-if="serieCard.adult">+18</li>
       </ul>
     </div>

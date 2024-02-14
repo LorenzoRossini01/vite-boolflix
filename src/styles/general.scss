@@ -29,5 +29,15 @@
       overflow-y: auto;
       height: 7rem;
     }
+
+    li {
+      i {
+        color: grey;
+
+        &.active {
+          color: goldenrod;
+        }
+      }
+    }
   }
 }
