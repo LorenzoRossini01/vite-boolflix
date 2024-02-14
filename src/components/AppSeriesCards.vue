@@ -9,6 +9,13 @@ export default {
   props: {
     serieCard: Object,
   },
+
+  methods: {
+    giveVoteStars(vote) {
+      const voteConverted = Math.round(vote / 2);
+      return voteConverted;
+    },
+  },
 };
 </script>
 
@@ -30,7 +37,7 @@ export default {
           />
         </li>
         <li>{{ serieCard.first_air_date }}</li>
-        <li>{{ serieCard.vote_average }}</li>
+        <li>{{ giveVoteStars(serieCard.vote_average) }}</li>
         <li v-if="serieCard.adult">+18</li>
       </ul>
     </div>
