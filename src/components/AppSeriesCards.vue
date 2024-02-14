@@ -15,12 +15,13 @@ export default {
 <template>
   <div class="card">
     <div class="card-header">
-      {{ serieCard.name }}
+      <h3>{{ serieCard.name }}</h3>
+      <img :src="`${store.introImgApi}${serieCard.poster_path}`" alt="" />
     </div>
     <div class="card-body">
       <ul>
         <li>{{ serieCard.original_name }}</li>
-        <li>{{ serieCard.overview }}</li>
+        <li class="serie-details">{{ serieCard.overview }}</li>
         <li>
           <img
             :src="`https://flagsapi.com/${store.convertLang(
@@ -28,7 +29,7 @@ export default {
             )}/flat/64.png`"
           />
         </li>
-        <li>{{ serieCard.release_date }}</li>
+        <li>{{ serieCard.first_air_date }}</li>
         <li>{{ serieCard.vote_average }}</li>
         <li v-if="serieCard.adult">+18</li>
       </ul>
@@ -36,9 +37,4 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.card {
-  width: 350px;
-  height: 500px;
-}
-</style>
+<style lang="scss" scoped></style>

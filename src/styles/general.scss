@@ -1,3 +1,33 @@
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
 @import "bootstrap/scss/bootstrap";
+
+.card {
+  width: 350px;
+  height: 950px;
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      height: 5rem;
+      padding-bottom: 3rem;
+      text-align: center;
+      vertical-align: baseline;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-body {
+    overflow: hidden;
+    .serie-details,
+    .movie-details {
+      overflow-y: auto;
+      height: 7rem;
+    }
+  }
+}

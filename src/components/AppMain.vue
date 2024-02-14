@@ -43,7 +43,6 @@ export default {
 .row {
   overflow-x: auto;
   flex-wrap: nowrap;
-  height: 550px;
   gap: 50px;
 }
 </style>
