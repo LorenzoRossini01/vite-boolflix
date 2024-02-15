@@ -14,7 +14,7 @@ export const store = reactive({
       lang = "JP";
     } else if (lang == "ko") {
       lang = "KR";
-    } else if (lang == "ur") {
+    } else if (lang == "ur" || "HI") {
       lang = "IN";
     } else if (lang == "zh") {
       lang = "CN";

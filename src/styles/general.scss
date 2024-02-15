@@ -17,6 +17,18 @@
       text-align: center;
       vertical-align: baseline;
     }
+
+    .img-default {
+      position: relative;
+
+      i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+    }
+
     img {
       width: 100%;
     }

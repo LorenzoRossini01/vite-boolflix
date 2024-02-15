@@ -23,6 +23,10 @@ export default {
     <div class="card-header">
       <h3>{{ movieCard.title }}</h3>
       <img :src="`${store.introImgApi}${movieCard.poster_path}`" alt="" />
+      <div class="img-default" v-if="movieCard.poster_path == null">
+        <img src="https://picsum.photos/seed/8/342/507" alt="" />
+        <i class="fa-solid fa-ban fa-6x text-danger"></i>
+      </div>
     </div>
     <div class="card-body">
       <div>
