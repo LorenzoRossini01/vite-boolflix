@@ -1,11 +1,16 @@
 <script>
 import { store } from "../store/index";
+import AppNav from "./AppNav.vue";
 
 export default {
   data() {
     return {
       store,
     };
+  },
+
+  components: {
+    AppNav,
   },
 
   emits: ["search-movie"],
@@ -19,14 +24,16 @@ export default {
 </script>
 
 <template>
-  <header class="bg-dark">
+  <header>
     <div class="container-fluid">
       <div>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1200px-Logonetflix.png"
           alt=""
         />
+        <AppNav></AppNav>
       </div>
+
       <div class="input-group">
         <input
           type="text"
@@ -45,8 +52,8 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  height: 100px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.468);
+  height: 75px;
+  padding: 3rem 0;
 
   .container-fluid {
     display: flex;
@@ -54,8 +61,14 @@ header {
     align-items: center;
     height: 100%;
 
+    div {
+      display: flex;
+      align-items: center;
+      height: 75px;
+    }
+
     img {
-      width: 150px;
+      height: 90%;
     }
 
     .input-group {

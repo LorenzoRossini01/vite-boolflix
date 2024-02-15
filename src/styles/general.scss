@@ -2,6 +2,14 @@
 @use "./partials/variables" as *;
 @import "bootstrap/scss/bootstrap";
 
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(34, 34, 34, 1) 0%,
+    rgb(32, 33, 35) 100%
+  );
+}
+
 .card {
   width: 350px;
   height: 500px;
@@ -46,10 +54,11 @@
     height: 500px;
 
     h3 {
-      height: 100px;
+      height: 75px;
       padding-bottom: 2rem;
       text-align: center;
       vertical-align: baseline;
+      font-size: 1.5rem;
     }
 
     ul {
@@ -80,4 +89,19 @@
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #565656;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

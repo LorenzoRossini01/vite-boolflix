@@ -23,7 +23,7 @@ export default {
   <div class="container-fluid">
     <div v-if="movieCardsArray.length > 0">
       <h2>Movies</h2>
-      <div class="row g-2">
+      <div class="row g-1">
         <div class="col" v-for="movie in movieCardsArray">
           <AppMovieCards :movieCard="movie"></AppMovieCards>
         </div>
@@ -31,7 +31,7 @@ export default {
     </div>
     <div v-if="seriesCardsArray.length > 0">
       <h2>TV Series</h2>
-      <div class="row g-2">
+      <div class="row g-1">
         <div class="col" v-for="serie in seriesCardsArray">
           <AppSeriesCards :serieCard="serie"></AppSeriesCards>
         </div>
@@ -44,8 +44,7 @@ export default {
 .container-fluid {
   overflow: hidden;
   h2 {
-    font-size: 2.5rem;
-    text-decoration: underline;
+    font-size: 2rem;
     color: white;
     margin: 1rem 0;
   }
@@ -53,7 +52,6 @@ export default {
 .row {
   overflow-x: auto;
   flex-wrap: nowrap;
-  padding: 1rem;
   .col {
     flex-grow: 0;
   }
