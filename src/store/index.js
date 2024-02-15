@@ -7,6 +7,12 @@ export const store = reactive({
   searchBar: { querySearch: "", show: false },
   apiKey: "f5f7651010a56a49f338d8ba37dd5a61",
 
+  apiMovieGenreUri: "https://api.themoviedb.org/3/genre/movie/list?",
+  apiSerieGenreUri: "https://api.themoviedb.org/3/genre/tv/list?",
+
+  movieGenres: [],
+  serieGenres: [],
+
   convertLang(lang) {
     if (lang == "en" || lang == "eng") {
       lang = "GB";

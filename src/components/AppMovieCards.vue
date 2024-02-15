@@ -47,6 +47,7 @@ export default {
               )}/flat/64.png`"
             />
           </li>
+          <li><span>Genere:</span> {{ movieCard.genre_ids }}</li>
           <li><span>Data di uscita:</span> {{ movieCard.release_date }}</li>
           <li>
             <span>Valutazione:</span>

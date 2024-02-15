@@ -20,7 +20,7 @@ export default {
   },
 
   methods: {
-    searchMovies() {
+    fetchMovies() {
       axios
         .get(
           `${store.apiMovieUri}?query=${store.searchBar.querySearch}&api_key=${store.apiKey}`
@@ -31,6 +31,18 @@ export default {
           );
           this.movieArray = res.data.results;
         });
+    },
+
+    fetchMoviesGenres() {
+      axios
+        .get(`${store.apiMovieGenreUri}&api_key=${store.apiKey}`)
+        .then((res) => {
+          console.log(res.data.genres);
+          store.movieGenres = res.data.genres;
+        });
+    },
+
+    fetchSeries() {
       axios
         .get(
           `${store.apiSeriesUri}?query=${store.searchBar.querySearch}&api_key=${store.apiKey}`
@@ -41,6 +53,22 @@ export default {
           );
           this.serieArray = res.data.results;
         });
+    },
+
+    fetchSeriesGenres() {
+      axios
+        .get(`${store.apiSerieGenreUri}&api_key=${store.apiKey}`)
+        .then((res) => {
+          console.log(res.data.genres);
+          store.serieGenres = res.data.genres;
+        });
+    },
+
+    searchMovies() {
+      this.fetchMovies();
+      this.fetchMoviesGenres();
+      this.fetchSeries();
+      this.fetchSeriesGenres();
     },
   },
 };

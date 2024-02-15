@@ -15,6 +15,8 @@ export default {
       return Math.round(this.serieCard.vote_average / 2);
     },
   },
+
+  methods: {},
 };
 </script>
 
@@ -46,6 +48,11 @@ export default {
             )}/flat/64.png`"
           />
         </li>
+        <li>
+          <span>Genere: </span>
+          {{ serieCard.genre_ids }}
+        </li>
+
         <li><span>Prima trasmissione:</span> {{ serieCard.first_air_date }}</li>
         <li>
           <span>Valutazione:</span>
