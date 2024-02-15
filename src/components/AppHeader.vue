@@ -33,7 +33,7 @@ export default {
           v-model="store.searchBar.querySearch"
           @keyup.enter="$emit('search-movie')"
           v-show="store.searchBar.show"
-          class="form-control"
+          class="form-control outline-secondary bg-dark text-white"
         />
         <div class="btn" @click="toggleSearchBar()">
           <i class="fa-solid fa-search text-white"></i>
@@ -46,6 +46,7 @@ export default {
 <style lang="scss" scoped>
 header {
   height: 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.468);
 
   .container-fluid {
     display: flex;

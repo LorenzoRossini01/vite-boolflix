@@ -4,19 +4,20 @@
 
 .card {
   width: 350px;
-  height: 950px;
+  height: 500px;
+  position: relative;
+  background-color: none;
+  background-color: #191919;
+  padding: 0;
+  margin: 1rem 0;
+  border-radius: 0;
 
-  .card-header {
+  .card-cover {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h3 {
-      height: 5rem;
-      padding-bottom: 3rem;
-      text-align: center;
-      vertical-align: baseline;
-    }
+    height: 500px;
 
     .img-default {
       position: relative;
@@ -34,20 +35,46 @@
     }
   }
 
-  .card-body {
+  .card-details {
     overflow: hidden;
-    .serie-details,
-    .movie-details {
-      overflow-y: auto;
-      height: 7rem;
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+    color: rgb(214, 214, 214);
+    border: none;
+    height: 500px;
+
+    h3 {
+      height: 100px;
+      padding-bottom: 2rem;
+      text-align: center;
+      vertical-align: baseline;
     }
 
-    li {
-      i {
-        color: grey;
+    ul {
+      list-style: none;
+      padding: 0;
 
-        &.active {
-          color: goldenrod;
+      li {
+        height: 50px;
+        padding: 10px 0;
+        &.serie-details,
+        &.movie-details {
+          overflow-y: auto;
+          min-height: 150px;
+          height: 150px;
+        }
+        i {
+          color: grey;
+
+          &.active {
+            color: goldenrod;
+          }
+        }
+        span {
+          padding-right: 1.5rem;
+          font-weight: 600;
+          color: #e6020c;
         }
       }
     }

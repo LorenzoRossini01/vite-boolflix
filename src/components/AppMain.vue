@@ -21,16 +21,20 @@ export default {
 
 <template>
   <div class="container-fluid">
-    <h1>Movies</h1>
-    <div class="row g-2">
-      <div class="col" v-for="movie in movieCardsArray">
-        <AppMovieCards :movieCard="movie"></AppMovieCards>
+    <div v-if="movieCardsArray.length > 0">
+      <h2>Movies</h2>
+      <div class="row g-2">
+        <div class="col" v-for="movie in movieCardsArray">
+          <AppMovieCards :movieCard="movie"></AppMovieCards>
+        </div>
       </div>
     </div>
-    <h1>TV Series</h1>
-    <div class="row g-2">
-      <div class="col" v-for="serie in seriesCardsArray">
-        <AppSeriesCards :serieCard="serie"></AppSeriesCards>
+    <div v-if="seriesCardsArray.length > 0">
+      <h2>TV Series</h2>
+      <div class="row g-2">
+        <div class="col" v-for="serie in seriesCardsArray">
+          <AppSeriesCards :serieCard="serie"></AppSeriesCards>
+        </div>
       </div>
     </div>
   </div>
@@ -39,11 +43,17 @@ export default {
 <style lang="scss" scoped>
 .container-fluid {
   overflow: hidden;
-  margin-left: 200px;
+  h2 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+    color: white;
+    margin: 1rem 0;
+  }
 }
 .row {
   overflow-x: auto;
   flex-wrap: nowrap;
+  padding: 1rem;
   .col {
     flex-grow: 0;
   }

@@ -3,7 +3,7 @@ import { store } from "../store/index";
 
 export default {
   data() {
-    return { store };
+    return { store, cardDetails: false };
   },
 
   props: {
@@ -19,29 +19,37 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header">
-      <h3>{{ movieCard.title }}</h3>
+  <div
+    class="card"
+    @mouseover="cardDetails = true"
+    @mouseleave="cardDetails = false"
+  >
+    <div class="card-cover" v-if="!cardDetails">
       <img :src="`${store.introImgApi}${movieCard.poster_path}`" alt="" />
       <div class="img-default" v-if="movieCard.poster_path == null">
         <img src="https://picsum.photos/seed/8/342/507" alt="" />
-        <i class="fa-solid fa-ban fa-6x text-danger"></i>
+        <i class="fa-solid fa-spanan fa-6x text-danger"></i>
       </div>
     </div>
-    <div class="card-body">
+    <div class="card-details" v-if="cardDetails">
       <div>
+        <h3><span>Titolo:</span> {{ movieCard.title }}</h3>
         <ul>
-          <li>{{ movieCard.original_title }}</li>
-          <li class="movie-details">{{ movieCard.overview }}</li>
+          <li><span>Titolo originale:</span>{{ movieCard.original_title }}</li>
+          <li class="movie-details">
+            <span>Trama:</span> {{ movieCard.overview }}
+          </li>
           <li>
+            <span>Lingua:</span>
             <img
               :src="`https://flagsapi.com/${store.convertLang(
                 movieCard.original_language
               )}/flat/64.png`"
             />
           </li>
-          <li>{{ movieCard.release_date }}</li>
+          <li><span>Data di uscita:</span> {{ movieCard.release_date }}</li>
           <li>
+            <span>Valutazione:</span>
             <i
               class="fa-solid fa-star"
               :class="voteConverted >= 1 ? 'active' : ''"
