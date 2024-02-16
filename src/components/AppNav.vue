@@ -1,7 +1,10 @@
 <script>
+import { store } from "../store/index";
+
 export default {
   data() {
     return {
+      store,
       navLinks: [
         { href: "#", text: "Home", active: false },
         { href: "#", text: "Film", active: false },
@@ -11,6 +14,8 @@ export default {
       ],
     };
   },
+
+  emits: ["showHome", "showFilm", "showTV", "showNew", "showMyList"],
 
   methods: {
     activeLink(activeLink) {
@@ -23,13 +28,11 @@ export default {
 <template>
   <nav>
     <ul>
-      <li
-        v-for="link in navLinks"
-        :class="link.active ? 'active' : ''"
-        @click="activeLink(link)"
-      >
-        <a :href="link.href">{{ link.text }}</a>
-      </li>
+      <li><a href="#">Home</a></li>
+      <li @click="store.getMovies()"><a href="#">Film</a></li>
+      <li @click="store.getSeries()"><a href="#">Serie TV</a></li>
+      <li @click="store.getNewContent()"><a href="#">Nuove Aggiunte</a></li>
+      <li><a href="#">La tua Lista</a></li>
     </ul>
   </nav>
 </template>
