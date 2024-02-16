@@ -75,7 +75,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @search-movie="searchMovies"></AppHeader>
+  <AppHeader @search="searchMovies"></AppHeader>
   <AppMain
     :movieCardsArray="movieArray"
     :seriesCardsArray="serieArray"

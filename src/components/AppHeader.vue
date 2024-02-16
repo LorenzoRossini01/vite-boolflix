@@ -13,7 +13,7 @@ export default {
     AppNav,
   },
 
-  emits: ["search-movie"],
+  emits: ["search"],
 
   methods: {
     toggleSearchBar() {
@@ -38,7 +38,7 @@ export default {
         <input
           type="text"
           v-model="store.searchBar.querySearch"
-          @keyup.enter="$emit('search-movie')"
+          @keyup="$emit('search')"
           v-show="store.searchBar.show"
           class="form-control outline-secondary bg-dark text-white"
         />

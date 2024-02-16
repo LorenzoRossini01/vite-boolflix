@@ -1,6 +1,5 @@
 <script>
-import AppMovieCards from "./AppMovieCards.vue";
-import AppSeriesCards from "./AppSeriesCards.vue";
+import AppCard from "./AppCard.vue";
 
 export default {
   data() {
@@ -14,7 +13,7 @@ export default {
 
   components: {
     AppMovieCards,
-    AppSeriesCards,
+    AppCard,
   },
 };
 </script>
@@ -25,7 +24,7 @@ export default {
       <h2>Movies</h2>
       <div class="row g-1">
         <div class="col" v-for="movie in movieCardsArray">
-          <AppMovieCards :movieCard="movie"></AppMovieCards>
+          <AppCard :content="movie"></AppCard>
         </div>
       </div>
     </div>
@@ -33,7 +32,7 @@ export default {
       <h2>TV Series</h2>
       <div class="row g-1">
         <div class="col" v-for="serie in seriesCardsArray">
-          <AppSeriesCards :serieCard="serie"></AppSeriesCards>
+          <AppCard :content="serie"></AppCard>
         </div>
       </div>
     </div>

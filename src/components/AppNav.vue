@@ -1,7 +1,21 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      navLinks: [
+        { href: "#", text: "Home", active: false },
+        { href: "#", text: "Film", active: false },
+        { href: "#", text: "Serie TV", active: false },
+        { href: "#", text: "Nuove Aggiunte", active: false },
+        { href: "#", text: "La tua Lista", active: false },
+      ],
+    };
+  },
+
+  methods: {
+    activeLink(activeLink) {
+      activeLink.active = !activeLink.active;
+    },
   },
 };
 </script>
@@ -9,11 +23,13 @@ export default {
 <template>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Film</a></li>
-      <li><a href="#">Serie TV</a></li>
-      <li><a href="#">Nuove Aggiunte</a></li>
-      <li><a href="#">La tua lista</a></li>
+      <li
+        v-for="link in navLinks"
+        :class="link.active ? 'active' : ''"
+        @click="activeLink(link)"
+      >
+        <a :href="link.href">{{ link.text }}</a>
+      </li>
     </ul>
   </nav>
 </template>
@@ -40,6 +56,9 @@ nav {
       }
 
       &:hover {
+        background-color: #474a4d;
+      }
+      &.active {
         background-color: #474a4d;
       }
     }
